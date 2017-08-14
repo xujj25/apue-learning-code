@@ -1,0 +1,7 @@
+a write to stdout
+more test on output buffer
+before fork
+pid = 14324, glob = 7, var = 89
+more test on output buffer
+before fork
+pid = 14323, glob = 6, var = 88
