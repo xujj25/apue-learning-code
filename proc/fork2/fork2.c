@@ -14,9 +14,9 @@ int main(void) {
             exit(0); // parent from second fork == first child
         }
         
-        // second child part:
-        sleep(2);
-        printf("second child, parent pid = %ld\n", (long)getpid());
+        // second child part: 
+        sleep(10);
+        printf("second child, parent pid = %ld\n", (long)getppid());
         exit(0);
     }
 
