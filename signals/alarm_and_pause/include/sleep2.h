@@ -1,6 +1,7 @@
 #include <setjmp.h>
 #include <signal.h>
 #include <unistd.h>
+#include <stdio.h>
 
 static jmp_buf env_alrm;
 
@@ -16,13 +17,14 @@ unsigned int sleep2(unsigned int seconds)
 		return(seconds);
 	if (setjmp(env_alrm) == 0) {
 		alarm(seconds);  // start the timer
+		printf("start sleeping, pause for SIGALRM\n");
 		pause();  //next caught signal wakes us up
 	}
 
 	// test
 	alarm(1);
-	signal(SIGALRM, sig_alrm);
 	printf("finished setting new alarm\n");
+	signal(SIGALRM, sig_alrm);
 
 
 	// pause();

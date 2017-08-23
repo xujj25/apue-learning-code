@@ -9,7 +9,7 @@ int main(void)
 
 	if (signal(SIGINT, sig_int) == SIG_ERR)
 		err_sys("signal(SIGINT) error");
-	unslept = sleep2(2);
+	unslept = sleep2(1);
 	
 	/*
 		the longjmp from the sleep2 function
