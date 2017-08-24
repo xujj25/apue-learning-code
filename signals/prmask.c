@@ -1,13 +1,13 @@
 #include "apue.h"
 #include <errno.h>
-#include <stdio.h>
 
-void pr_mask(const char* str)
+void
+pr_mask(const char *str)
 {
-	sigset_t sigset;
-	int errno_save;
+	sigset_t	sigset;
+	int			errno_save;
 
-	errno_save = errno;  // we can be called by signal handlers
+	errno_save = errno;		/* we can be called by signal handlers */
 	if (sigprocmask(0, NULL, &sigset) < 0) {
 		err_ret("sigprocmask error");
 	} else {
@@ -21,10 +21,10 @@ void pr_mask(const char* str)
 		if (sigismember(&sigset, SIGALRM))
 			printf(" SIGALRM");
 
-		// remaining signals can go here
+		/* remaining signals can go here  */
 
 		printf("\n");
 	}
 
-	errno = errno_save;  // restore errno
+	errno = errno_save;		/* restore errno */
 }
