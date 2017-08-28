@@ -1,8 +1,9 @@
 # 信号部分学习笔记
-1. `apue.h`中的`signal`函数只会生效一次，而在ubuntu16.04和centos7.3上均会一直生效
+1. `apue.h`中的`signal`函数只会生效一次（之后相同的信号再次出现不会调用`signal`函数指定的信号处理函数）。而直接使用ubuutu16.04上的C语言库头文件`signal.h`中的`signal`函数则会一直生效。
+
 ------
 
-2. ubuntu16.04中的`sigsetjmp`和`siglongjmp`运行时没有出现APUE中说到的“当调用一个信号处理程序时，被捕捉到的信号加到进程的当前信号屏蔽字中。当从信号处理程序返回时，恢复原来的屏蔽字。另外，siglongjmp恢复了sigsetjmp所保存的信号屏蔽字”
+2. ubuntu16.04中的`sigsetjmp`和`siglongjmp`运行时没有出现APUE中说到的*当调用一个信号处理程序时，被捕捉到的信号加到进程的当前信号屏蔽字中。当从信号处理程序返回时，恢复原来的屏蔽字。另外，siglongjmp恢复了sigsetjmp所保存的信号屏蔽字*
 
 
 - APUE中例程（图10-20）的执行结果为
@@ -30,3 +31,5 @@
 - StackOverflow给出使用该选项的解释是：
 -
 ![answer_of_D_GNU_SOURCE.png](./answer_of_D_GNU_SOURCE.png)
+- 另外Google上其他简单的解释：`gcc -D_GNU_SOURCE hello.c`
+*means the compiler will use the GNU standard of compilation, the superset of all other standards under GNU C libraries.*

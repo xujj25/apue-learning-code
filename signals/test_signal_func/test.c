@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <signal.h>
 #include <unistd.h>
-// #include "apue.h"
 
 static void sig_int(int signo)
 {
@@ -18,6 +17,8 @@ int main(int argc, char const *argv[])
 {
     signal(SIGINT, sig_int);
     raise(SIGINT);
-    printf("try here\n");
+    printf("breakpoint 1\n");
+    raise(SIGINT);
+    printf("breakpoint 2\n");
     return 0;
 }

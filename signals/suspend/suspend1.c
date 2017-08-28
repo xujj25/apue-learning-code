@@ -1,5 +1,4 @@
 #include "apue.h"
-#include "pr_mask.h"
 
 static void sig_int(int);
 
