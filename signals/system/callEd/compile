@@ -1,0 +1,2 @@
+#!/bin/bash
+gcc callEd.c ../../apue.3e/lib/error.c -o callEd -D_GNU_SOURCE -DLINUX
