@@ -8,6 +8,9 @@ int main(void)
 
     TELL_WAIT();
 
+    // test
+    kill(getpid(), SIGUSR1);
+
     if ((pid = fork()) < 0) {
         err_sys("fork error");
     } else if (pid == 0) {

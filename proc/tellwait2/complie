@@ -1,0 +1,4 @@
+#!/bin/bash
+
+gcc tellwait2.c ../../apue.3e/lib/error.c ../../signals/proc_sync.c -o tellwait2 -D_GNU_SOURCE
+
