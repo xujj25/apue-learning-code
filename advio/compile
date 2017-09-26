@@ -1,0 +1,3 @@
+#!/bin/sh
+
+gcc -DLINUX -D_GNU_SOURCE nonblockw.c -o nonblockw -lapue

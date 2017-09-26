@@ -1,0 +1,4 @@
+#!/bin/sh
+
+gcc -D_GNU_SOURCE -DLINUX src/threadid.c -o bin/threadid -lapue -lpthread
+
